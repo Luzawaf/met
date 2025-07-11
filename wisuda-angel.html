@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Wisuda Angel! 🎓</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .button.red {
+            background: linear-gradient(45deg, #e53e3e, #c53030);
+        }
+
+        .button.green {
+            background: linear-gradient(45deg, #38a169, #2f855a);
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 30px;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+
+        .graduation-text {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slide 1: Selamat Datang -->
+        <div class="slide active" id="slide1">
+            <div class="emoji">👋</div>
+            <h1>Selamat Datang Angel!</h1>
+            <p>Ada sesuatu yang spesial untukmu hari ini...</p>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+
+        <!-- Slide 2: Happy Graduation -->
+        <div class="slide" id="slide2">
+            <div class="emoji">🎓</div>
+            <div class="graduation-text">Happy Graduation Angel!</div>
+            <p>Selamat ya atas pencapaian luar biasa ini! Semoga ini menjadi awal dari perjalanan yang lebih menakjubkan lagi.</p>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+
+        <!-- Slide 3: Permintaan Maaf -->
+        <div class="slide" id="slide3">
+            <div class="emoji">😔</div>
+            <h2>Maaf ya...</h2>
+            <p>Aku nggak bisa datang ke wisudamu. Tapi hati dan doaku selalu bersamamu!</p>
+            <button class="button green" onclick="forgive()">Dimaafin</button>
+            <button class="button red" onclick="notForgive()">Tidak Dimaafin</button>
+        </div>
+
+        <!-- Slide 4: Tidak Dimaafin -->
+        <div class="slide" id="slide4">
+            <div class="emoji">🥺</div>
+            <h2>Masa sih ga dimaafin?</h2>
+            <p>Ayolah, Allah aja Maha Pemaaf, mosok hambae ogak hehe 😅</p>
+            <button class="button green" onclick="forgive()">Yaudah Dimaafin</button>
+        </div>
+
+        <!-- Slide 5: Terima Kasih -->
+        <div class="slide" id="slide5">
+            <div class="emoji">💖</div>
+            <h1>Terima Kasih!</h1>
+            <div class="final-message">
+                <h2>🎉 Selamat Wisuda Angel! 🎉</h2>
+                <p>Kamu udah lolos UIN Walisongo jurusan Biologi! Keren banget!</p>
+                <p>Semoga ini emang linier dengan minat dan passion kamu. Semoga bisa bertahan sampai akhir dan lulus dengan cepat ya!</p>
+                <p>Sukses selalu untuk Angel! 🌟</p>
+                <div style="margin-top: 20px;">
+                    <span style="font-size: 2em;">🌸🌺🌻🌷🌹</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function nextSlide() {
+            document.getElementById(`slide${currentSlide}`).classList.remove('active');
+            currentSlide++;
+            if (currentSlide <= totalSlides) {
+                document.getElementById(`slide${currentSlide}`).classList.add('active');
+            }
+        }
+
+        function forgive() {
+            document.getElementById(`slide${currentSlide}`).classList.remove('active');
+            currentSlide = 5;
+            document.getElementById('slide5').classList.add('active');
+            createFlowerRain();
+        }
+
+        function notForgive() {
+            document.getElementById('slide3').classList.remove('active');
+            currentSlide = 4;
+            document.getElementById('slide4').classList.add('active');
+        }
+
+        function createFlowerRain() {
+            const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹', '🌼', '💐', '🌟', '✨'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.className = 'flower';
+                    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                    flower.style.left = Math.random() * 100 + '%';
+                    flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    flower.style.animationDelay = Math.random() * 2 + 's';
+                    
+                    document.body.appendChild(flower);
+                    
+                    setTimeout(() => {
+                        flower.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
